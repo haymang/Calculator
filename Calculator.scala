@@ -16,7 +16,7 @@ object Calculator{
 
 		//println("operands: "+1,+v2);
 		val op = new Operations();
-		var result = op.addNum(operand1,operand2);
+		var result = op.divNum(operand1,operand2);
 
 
 		var intResult  = if(checkInt(result)){
@@ -79,9 +79,17 @@ object Calculator{
 				return result;
 		}
 		def divNum(a:Double,b:Double):Double = {
+		  
+		  if(b == 0){
+		    println("Can't divide by 0");
+		    sys.exit;
+		  }
+		  else{
 				var result = a/b;
 				return result;
+		  }
+		  
 		}
- }
 	
+}
 }
