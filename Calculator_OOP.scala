@@ -1,32 +1,53 @@
 import calculator.routine._;
+import scala.util.control.Breaks._;
 
 object Calculator{
-    def main(args: Array[String]){
+	def main(args: Array[String]){
+
+		var userInput1:Double = 0;
+	var userInput2:Double = 0;
 
 
-         println("Enter 1st operand");
-         var userInput1 = scala.io.StdIn.readDouble();       
+	println("Enter 1st operand");
+	breakable{
+		while(true){
+			try{         
+				userInput1 = scala.io.StdIn.readDouble(); 
+				break;
+			}
+			catch{
+			case e:Exception => println("Not a Number, Try Again!");
+			}
+		}
+	}
 
-         println("Enter 2nd operand");
-         var userInput2 = scala.io.StdIn.readDouble();       
+	println("Enter 2nd operand");
+	breakable{
+		while(true){
+			try{
+				userInput2 = scala.io.StdIn.readDouble();
+				break;
+			}
+			catch{
+			case e:Exception => println("Not a Number, Try Again!");
+			}
+		}
+	}
 
-        val operand1 = new Operation(userInput1);
-        val operand2 = new Operation(userInput2);
+	val operand1 = new Number(userInput1);
+	val operand2 = new Number(userInput2);
 
-    //  val operand1 = obj1.parseNum();
-    //  val operand2 = obj2.parseNum();
 
-        println("operands: " +operand1.num+ "," +operand2.num);
-        
-        //val objOp = new Operations(operand1,operand2);
-        val result = operand1.add(operand2);
-        val objCheck = new Operation(result);
+	println("operands: " +operand1.num+ "," +operand2.num);
 
-        if(objCheck.checkInt(result)) {
-            println("Output : " + result);
-        } else {
-            println("Output: "+ result.asInstanceOf[Int]);
-        }
+	val result = operand1.add(operand2);
+	val objCheck = new Number(result);
 
-    }
+	if(objCheck.checkInt()) {
+		println("Output : " + result.asInstanceOf[Int]);
+	} else {
+		println("Output: "+ result);
+	}
+
+	}
 }

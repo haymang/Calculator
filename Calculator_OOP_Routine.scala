@@ -1,28 +1,28 @@
 package calculator.routine;
 
-class Operation(val num:Double) {
+class Number(val num:Double) {
     
-    def add(n:Operation):Double = {
-        return num + n.num;
+    def add(n:Number):Double = {
+       return num + n.num;
     }
     
-    def subtract(n:Operation):Double = {
+    def subtract(n:Number):Double = {
         return num - n.num;
     }
     
-    def multiply(n:Operation):Double = {
+    def multiply(n:Number):Double = {
         return num * n.num;
     }
     
-    def divide(n:Operation):Double = {
+    def divide(n:Number):Double = {
         if(n.num != 0.0) {
             return num / n.num;
         }
         return 0;
     }
 
-    def checkInt(number:Double):Boolean = {
-        return Math.ceil(number) == Math.floor(number);
+    def checkInt():Boolean = {
+        return Math.ceil(num) == Math.floor(num);
     }
 
 
