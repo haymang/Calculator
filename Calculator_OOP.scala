@@ -41,12 +41,12 @@ object Calculator{
 	println("operands: " +operand1.num+ "," +operand2.num);
 
 	val result = operand1.add(operand2);
-	val objCheck = new Number(result);
+	//val objCheck = new Number(result);
 
-	if(objCheck.checkInt()) {
-		println("Output : " + result.asInstanceOf[Int]);
+	if(result.checkInt()) {
+		println("Output : " + result.num.asInstanceOf[Int]);
 	} else {
-		println("Output: "+ result);
+		println("Output: "+ result.num);
 	}
 
 	}
